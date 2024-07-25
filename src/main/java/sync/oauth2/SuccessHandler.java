@@ -37,7 +37,6 @@ public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
 
         String token = jwtUtil.createJwt(username, role, 60*30*1000L, infoSet, name);
-
         response.setHeader("Authorization", "Bearer " + token);
         log.info("token : " + token);
 
@@ -49,8 +48,8 @@ public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         // JSON 스트링을 response body에 작성
         response.getWriter().write(jsonResponse);
         response.getWriter().flush();
-        // 로그인 성공 후 리다이렉트
-        response.sendRedirect("http://localhost:3000/");
+
+
     }
 
     //쿠키로 JWT 발급
