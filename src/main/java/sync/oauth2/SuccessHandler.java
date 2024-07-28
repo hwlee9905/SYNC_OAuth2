@@ -11,7 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
-import sync.oauth2.dto.response.ResponseMessage;
+import sync.oauth2.global.ResponseMessage;
 
 import java.io.IOException;
 import java.util.Collection;

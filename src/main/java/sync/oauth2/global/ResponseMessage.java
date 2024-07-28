@@ -1,4 +1,4 @@
-package sync.oauth2.dto.response;
+package sync.oauth2.global;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class ResponseMessage {
 	private String message;
-	@Builder.Default
-	private boolean result = true;
+	private boolean result;
 	private Object value;
 }
