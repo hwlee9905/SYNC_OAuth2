@@ -1,4 +1,4 @@
-package sync.oauth2;
+package sync.oauth2.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

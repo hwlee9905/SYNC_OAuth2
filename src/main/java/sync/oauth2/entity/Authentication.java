@@ -1,4 +1,4 @@
-package sync.oauth2;
+package sync.oauth2.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,7 +18,6 @@ public class Authentication extends BaseEntity {
     private String userId;
     private String password;
     private String email;
-    private Integer failCount;
     @Enumerated(EnumType.STRING)
     private InfoSet infoSet;
     @OneToOne(mappedBy = "authentication")

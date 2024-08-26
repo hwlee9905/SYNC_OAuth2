@@ -1,4 +1,4 @@
-package sync.oauth2;
+package sync.oauth2.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,6 @@ public class User extends BaseEntity {
     private String introduction;
     @Enumerated(EnumType.STRING)
     private Role role;
-    //lazy 추가할것
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "authentication_id")
     private Authentication authentication;

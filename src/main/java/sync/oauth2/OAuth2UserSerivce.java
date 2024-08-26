@@ -13,6 +13,10 @@ import sync.oauth2.dto.response.OAuth2GoogleResponseDto;
 import sync.oauth2.dto.response.OAuth2KakaoResponseDto;
 import sync.oauth2.dto.response.OAuth2NaverResponseDto;
 import sync.oauth2.dto.response.OAuth2Response;
+import sync.oauth2.entity.Authentication;
+import sync.oauth2.entity.InfoSet;
+import sync.oauth2.entity.Role;
+import sync.oauth2.entity.User;
 
 @RequiredArgsConstructor
 @Service

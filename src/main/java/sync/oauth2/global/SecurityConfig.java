@@ -1,4 +1,4 @@
-package sync.oauth2;
+package sync.oauth2.global;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +21,9 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.servlet.HandlerExceptionResolver;
+import sync.oauth2.JWTUtil;
+import sync.oauth2.OAuth2UserSerivce;
+import sync.oauth2.SuccessHandler;
 
 import java.util.Arrays;
 import java.util.Collections;
