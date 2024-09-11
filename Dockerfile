@@ -9,13 +9,6 @@ WORKDIR /app
 # 현재 디렉토리의 모든 파일을 컨테이너의 /app 디렉토리에 복사
 COPY . /app
 
-# SSL 인증서와 키 파일 복사
-COPY server.crt /etc/ssl/certs/server.crt
-COPY server.key /etc/ssl/private/server.key
-
-# keystore 파일 생성
-RUN openssl pkcs12 -export -in /etc/ssl/certs/server.crt -inkey /etc/ssl/private/server.key -out /etc/ssl/certs/keystore.p12 -name your_key_alias -password pass:your_keystore_password
-
 EXPOSE 5005
 # 애플리케이션이 사용할 포트
 EXPOSE 8090
