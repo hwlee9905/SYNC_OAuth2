@@ -37,8 +37,8 @@ public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
 
         String token = jwtUtil.createJwt(username, role, 60*30*1000L, infoSet, name);
-        response.setHeader("Authorization", "Bearer " + token);
-        log.info("token : " + token);
+        ResponseCookie cookie = createCookie("JWT_TOKEN", token);
+        response.addHeader("Set-Cookie", cookie.toString());
 
         // ObjectMapper를 사용하여 JSON으로 변환
         ObjectMapper objectMapper = new ObjectMapper();
