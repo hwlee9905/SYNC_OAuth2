@@ -10,11 +10,11 @@ WORKDIR /app
 COPY . /app
 
 # SSL 인증서와 키 파일 복사
-COPY server.crt /etc/ssl/certs/server.crt
-COPY server.key /etc/ssl/private/server.key
+COPY server.crt /root/tls.crt
+COPY server.key /root/tls.key
 
 # keystore 파일 생성
-RUN openssl pkcs12 -export -in /etc/ssl/certs/server.crt -inkey /etc/ssl/private/server.key -out /etc/ssl/certs/keystore.p12 -name your_key_alias -password pass:your_keystore_password
+RUN openssl pkcs12 -export -in /root/tls.crt -inkey /root/tls.key -out /etc/ssl/certs/keystore.p12 -name your_key_alias -password pass:your_keystore_password
 
 EXPOSE 5005
 # 애플리케이션이 사용할 포트
