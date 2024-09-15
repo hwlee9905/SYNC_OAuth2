@@ -35,20 +35,15 @@ public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
         GrantedAuthority auth = iterator.next();
         String role = auth.getAuthority();
-
-
         String token = jwtUtil.createJwt(username, role, 60*30*1000L, infoSet, name);
         response.addCookie(createCookie("JWT_TOKEN", token));
         response.sendRedirect("https://localhost:3000");
-
-
-
-
     }
 
     //쿠키로 JWT 발급
     private Cookie createCookie(String key, String value) {
         Cookie cookie = new Cookie(key, value);
+        cookie.setDomain("localhost");
         cookie.setPath("/");
         cookie.setHttpOnly(false);
         cookie.setSecure(true);
