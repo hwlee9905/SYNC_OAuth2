@@ -2,6 +2,7 @@ package sync.oauth2;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -37,31 +38,21 @@ public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
 
         String token = jwtUtil.createJwt(username, role, 60*30*1000L, infoSet, name);
-        ResponseCookie cookie = createCookie("JWT_TOKEN", token);
-        response.addHeader("Set-Cookie", cookie.toString());
-
-        // ObjectMapper를 사용하여 JSON으로 변환
-        ObjectMapper objectMapper = new ObjectMapper();
-        String jsonResponse = objectMapper.writeValueAsString(ResponseMessage.builder().message("success").build());
-        response.setContentType("text/plain");
-        response.setCharacterEncoding("UTF-8");
+        response.addCookie(createCookie("JWT_TOKEN", token));
         response.sendRedirect("https://localhost:3000");
-        // JSON 스트링을 response body에 작성
-        response.getWriter().write(jsonResponse);
-        response.getWriter().flush();
+
+
 
 
     }
 
     //쿠키로 JWT 발급
-    private ResponseCookie createCookie(String key, String value) {
-        ResponseCookie cookie = ResponseCookie.from(key, value)
-            .path("/")
-            .sameSite("none")
-            .httpOnly(false)
-            .secure(true)
-            .maxAge(30 * 60)
-            .build();
+    private Cookie createCookie(String key, String value) {
+        Cookie cookie = new Cookie(key, value);
+        cookie.setPath("/");
+        cookie.setHttpOnly(false);
+        cookie.setSecure(true);
+        cookie.setMaxAge(30 * 60);
         return cookie;
     }
 }
