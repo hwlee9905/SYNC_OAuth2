@@ -45,10 +45,11 @@ public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         String jsonResponse = objectMapper.writeValueAsString(ResponseMessage.builder().message("success").build());
         response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
+        response.sendRedirect("https://localhost:3000");
         // JSON 스트링을 response body에 작성
         response.getWriter().write(jsonResponse);
         response.getWriter().flush();
-        response.sendRedirect("https://localhost:3000");
+
 
     }
 
