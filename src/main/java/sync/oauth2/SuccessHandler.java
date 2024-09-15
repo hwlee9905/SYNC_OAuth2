@@ -48,7 +48,7 @@ public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         // JSON 스트링을 response body에 작성
         response.getWriter().write(jsonResponse);
         response.getWriter().flush();
-
+        response.sendRedirect("https://localhost:3000");
 
     }
 
