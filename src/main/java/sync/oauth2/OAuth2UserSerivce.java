@@ -7,7 +7,6 @@ import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import sync.oauth2.dto.OAuth2UserDto;
 import sync.oauth2.dto.response.OAuth2GoogleResponseDto;
 import sync.oauth2.dto.response.OAuth2KakaoResponseDto;
@@ -17,6 +16,7 @@ import sync.oauth2.entity.Authentication;
 import sync.oauth2.entity.InfoSet;
 import sync.oauth2.entity.Role;
 import sync.oauth2.entity.User;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service

@@ -22,6 +22,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 	//spring security
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.projectlombok:lombok:1.18.28'
 	testImplementation 'org.springframework.security:spring-security-test'
 	// Lombok
 	compileOnly 'org.projectlombok:lombok'
