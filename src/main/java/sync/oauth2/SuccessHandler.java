@@ -52,7 +52,7 @@ public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     //쿠키로 JWT 발급
     private Cookie createCookie(String key, String value) {
         Cookie cookie = new Cookie(key, value);
-        cookie.setAttribute("SameSite", "Lax");
+        cookie.setAttribute("SameSite", "none");
         cookie.setPath("/");
         cookie.setHttpOnly(false);
         cookie.setSecure(true);
