@@ -1,9 +1,8 @@
 FROM openjdk:17-slim
 
 # Java 환경 변수 설정
-ENV JAVA_HOME /usr/local/openjdk-17
+ENV JAVA_HOME /opt/java/openjdk
 ENV PATH $PATH:$JAVA_HOME/bin
-
 WORKDIR /app
 
 # 현재 디렉토리의 모든 파일을 컨테이너의 /app 디렉토리에 복사
