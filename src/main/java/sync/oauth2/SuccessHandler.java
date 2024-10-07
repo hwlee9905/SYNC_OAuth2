@@ -37,7 +37,7 @@ public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         String role = auth.getAuthority();
         String token = jwtUtil.createJwt(username, role, 60*30*1000L, infoSet, name);
         response.addCookie(createCookie("JWT_TOKEN", token));
-        response.sendRedirect("https://localhost:3000");
+        response.sendRedirect("https://view.sync-team.co.kr");
     }
 //    private ResponseCookie createCookie(String key, String value) {
 //        ResponseCookie cookie = ResponseCookie.from(key, value)
