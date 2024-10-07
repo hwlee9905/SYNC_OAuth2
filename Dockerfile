@@ -1,7 +1,7 @@
 FROM openjdk:17-slim
 
 # Java 환경 변수 설정
-ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-arm64
+ENV JAVA_HOME /usr/lib/jvm/openjdk-17
 ENV PATH $PATH:$JAVA_HOME/bin
 
 WORKDIR /app
