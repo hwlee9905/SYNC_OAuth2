@@ -106,7 +106,7 @@ public class SecurityConfig {
                     @Override
                     public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
                         CorsConfiguration configuration = new CorsConfiguration();
-                        configuration.setAllowedOrigins(List.of("https://localhost:3000", "http://localhost:3000", "https://www.sync-team.co.kr", "https://localhost", "http://localhost:8090", "http://150.230.190.128:8090"));
+                        configuration.setAllowedOrigins(List.of("https://localhost:3000", "http://localhost:3000", "https://www.sync-team.co.kr", "https://localhost", "http://localhost:8090", "http://150.230.190.128:8090", "https://view.sync-team.co.kr", "https://view.sync-team.co.kr:8443"));
                         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
                         configuration.setAllowCredentials(true);
                         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
