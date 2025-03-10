@@ -57,6 +57,7 @@ public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         cookie.setHttpOnly(false);
         cookie.setSecure(true);
         cookie.setMaxAge(30 * 60);
+        cookie.setDomain(".sync-team.co.kr");
         return cookie;
     }
 }
