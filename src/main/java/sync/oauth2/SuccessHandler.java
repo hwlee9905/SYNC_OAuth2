@@ -36,7 +36,9 @@ public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         GrantedAuthority auth = iterator.next();
         String role = auth.getAuthority();
         String token = jwtUtil.createJwt(username, role, 60*30*1000L, infoSet, name);
-        response.addCookie(createCookie("JWT_TOKEN", token));
+        ResponseCookie responseCookie = createResponseCookie("JWT_TOKEN", token);
+        response.addHeader("Set-Cookie", responseCookie.toString());
+
         response.sendRedirect("https://view.sync-team.co.kr");
     }
 //    private ResponseCookie createCookie(String key, String value) {
@@ -50,14 +52,14 @@ public class SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 //        return cookie;
 //    }
     //쿠키로 JWT 발급
-    private Cookie createCookie(String key, String value) {
-        Cookie cookie = new Cookie(key, value);
-        cookie.setAttribute("SameSite", "none");
-        cookie.setPath("/");
-        cookie.setHttpOnly(false);
-        cookie.setSecure(true);
-        cookie.setMaxAge(30 * 60);
-        cookie.setDomain(".sync-team.co.kr");
-        return cookie;
+    private ResponseCookie createResponseCookie(String key, String value) {
+        return ResponseCookie.from(key, value)
+                .domain(".sync-team.co.kr")
+                .path("/")
+                .sameSite("None")
+                .httpOnly(false)
+                .secure(true)
+                .maxAge(30 * 60)
+                .build();
     }
 }
